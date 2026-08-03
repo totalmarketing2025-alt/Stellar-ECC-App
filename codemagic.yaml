@@ -1,9 +1,17 @@
-  - unset JAVA_TOOL_OPTIONS
-  - unset _JAVA_OPTIONS
-  - unset JAVA_OPTS
-  - unset GRADLE_OPTS
-  - echo "Checking Java variables"
-  - env | grep -i java
-  - flutter pub get
-  - cat android/gradle.properties
-  - flutter build apk --release
+workflows:
+  android-workflow:
+    name: Android Workflow
+    environment:
+      flutter: stable
+    scripts:
+      - unset JAVA_TOOL_OPTIONS
+      - unset _JAVA_OPTIONS
+      - unset JAVA_OPTS
+      - unset GRADLE_OPTS
+      - echo "Checking Java variables"
+      - env | grep -i java
+      - flutter pub get
+      - cat android/gradle.properties
+      - flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
