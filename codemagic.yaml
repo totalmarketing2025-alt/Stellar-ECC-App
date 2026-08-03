@@ -1,4 +1,3 @@
-scripts:
   - unset JAVA_TOOL_OPTIONS
   - unset _JAVA_OPTIONS
   - unset JAVA_OPTS
@@ -6,4 +5,5 @@ scripts:
   - echo "Checking Java variables"
   - env | grep -i java
   - flutter pub get
+  - cat android/gradle.properties
   - flutter build apk --release
