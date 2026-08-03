@@ -1,8 +1,9 @@
 scripts:
-  - java -version
-  - echo "JAVA_TOOL_OPTIONS=$JAVA_TOOL_OPTIONS"
-  - echo "JAVA_OPTS=$JAVA_OPTS"
-  - echo "GRADLE_OPTS=$GRADLE_OPTS"
+  - unset JAVA_TOOL_OPTIONS
+  - unset _JAVA_OPTIONS
+  - unset JAVA_OPTS
+  - unset GRADLE_OPTS
+  - echo "Checking Java variables"
+  - env | grep -i java
   - flutter pub get
-  - cat android/gradle.properties
   - flutter build apk --release
