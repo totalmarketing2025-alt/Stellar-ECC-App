@@ -8,9 +8,11 @@ workflows:
       - unset _JAVA_OPTIONS
       - unset JAVA_OPTS
       - unset GRADLE_OPTS
-      - echo "Checking Java variables"
-      - env | grep -i java
       - flutter pub get
+      - echo "JAVA:"
+      - env | grep -i java
+      - echo "GRADLE:"
+      - env | grep -i gradle
       - cat android/gradle.properties
       - flutter build apk --release
     artifacts:
